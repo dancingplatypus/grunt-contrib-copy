@@ -43,7 +43,7 @@ module.exports = function(grunt) {
         files: [
           { expand: true, cwd: 'test/fixtures/', src: ['*.*'], dest: 'tmp/copy_test_files/' },
           { expand: true, cwd: 'test/fixtures/', src: ['**'], dest: 'tmp/copy_test_mix/' },
-          { expand: true, cwd: 'test/fixtures/', src: ['folder_one/*'], dest: 'tmp/copy_test_v<%= test_vars.version %>/' }
+          { expand: true, cwd: 'test/fixtures/', src: ['<%= test_vars.match %>'], dest: 'tmp/copy_test_v<%= test_vars.version %>/' }
         ]
       },
 
