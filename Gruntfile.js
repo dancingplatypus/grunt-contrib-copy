@@ -55,20 +55,16 @@ module.exports = function(grunt) {
         flatten: true,
         filter: 'isFile'
       },
-/* Do we need to support this with expansion?
+
       minimatch: {
-        options: {
-          cwd: 'test/fixtures',
-          excludeEmpty: true,
-          minimatch: {
-            dot: true
-          }
-        },
-        files: {
-          'tmp/copy_minimatch/': ['*']
-        }
+        expand: true,
+        cwd: 'test/fixtures',
+        src: ['*'],
+        dest: 'tmp/copy_minimatch/',
+        dot: true,
+        filter: 'isFile'
       },
-*/
+
       single: {
         src:  ['test/fixtures/test.js'],
         dest: 'tmp/single.js'

@@ -33,7 +33,7 @@ exports.copy = {
 
     test.done();
   },
-  /*
+
   minimatch: function(test) {
     'use strict';
 
@@ -45,7 +45,7 @@ exports.copy = {
 
     test.done();
   },
-  */
+
   single: function(test) {
     'use strict';
 

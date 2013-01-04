@@ -21,7 +21,6 @@ module.exports = function(grunt) {
     grunt.verbose.writeflags(options, 'Options');
 
     if (fs.lstatSync(this.file.src[0]).isDirectory()) {
-      console.log('making directory',this.file.dest);
       grunt.file.mkdir(this.file.dest);
     } else {
       grunt.file.copy(this.file.src[0], this.file.dest, options);
