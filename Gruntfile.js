@@ -40,25 +40,22 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     copy: {
       main: {
-        options: {
-          cwd: 'test/fixtures'
-        },
-        files: {
-          'tmp/copy_test_files/': ['*.*'],
-          'tmp/copy_test_mix/': ['**'],
-          'tmp/copy_test_v<%= test_vars.version %>/': ['<%= test_vars.match %>']
-        }
+        files: [
+          { expand: true, cwd: 'test/fixtures/', src: ['*.*'], dest: 'tmp/copy_test_files/' },
+          { expand: true, cwd: 'test/fixtures/', src: ['**'], dest: 'tmp/copy_test_mix/' },
+          { expand: true, cwd: 'test/fixtures/', src: ['folder_one/*'], dest: 'tmp/copy_test_v<%= test_vars.version %>/' }
+        ]
       },
 
       flatten: {
-        options: {
-          flatten: true
-        },
-        files: {
-          'tmp/copy_test_flatten/': ['test/fixtures/**']
-        }
+        expand: true,
+        cwd: 'test/fixtures/',
+        src: ['**'],
+        dest: 'tmp/copy_test_flatten/',
+        flatten: true,
+        filter: 'isFile'
       },
-
+/* Do we need to support this with expansion?
       minimatch: {
         options: {
           cwd: 'test/fixtures',
@@ -71,11 +68,10 @@ module.exports = function(grunt) {
           'tmp/copy_minimatch/': ['*']
         }
       },
-
+*/
       single: {
-        files: {
-          'tmp/single.js': ['test/fixtures/test.js']
-        }
+        src:  ['test/fixtures/test.js'],
+        dest: 'tmp/single.js'
       }
     },
 
